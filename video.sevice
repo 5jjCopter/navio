@@ -1,0 +1,12 @@
+[Unit]
+Description=video Flight Controller
+After=network.target user.slice
+
+[Service]
+ExecStart=/home/pi/video
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+Alias=video.service
