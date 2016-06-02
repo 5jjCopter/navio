@@ -1,0 +1,5 @@
+#!/bin/sh
+IP=192.168.1.150
+PORT=14550
+PROTOCOL=udp
+ArduCopter-y6 -C /dev/ttyAMA0 -A $PROTOCOL:$IP:$PORT > /home/pi/ArduCopter-y6.log
