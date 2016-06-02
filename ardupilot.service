@@ -1,0 +1,12 @@
+[Unit]
+Description=ArduPilot Flight Controller
+After=network.target user.slice
+
+[Service]
+ExecStart=/home/pi/ardupilot -C udp:192.168.1.150:14500 -A /dev/ttyAMA0
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+Alias=ardupilot.service
