@@ -2,4 +2,4 @@
 
 sudo apt-get update && sudo apt-get install apm-navio2
 
-sudo reboot
+
