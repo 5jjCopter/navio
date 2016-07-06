@@ -16,6 +16,8 @@ sudo rm interfaces
 
 cd
 
+cd navio-master
+
 sudo cp interfaces /etc/network
 
 cd /etc/network
