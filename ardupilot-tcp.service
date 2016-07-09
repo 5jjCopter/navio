@@ -1,0 +1,12 @@
+[Unit]
+Description=ArduPilot Flight Controller
+After=network.target user.slice
+
+[Service]
+ExecStart=/home/pi/ardupilot-tcp
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+Alias=ardupilot-tcp.service
