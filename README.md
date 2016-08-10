@@ -1,16 +1,25 @@
 # navio
 Contenido:
 ardupilol (scripts para arranque apm)...Cambiar ip y veiculo para nuestra nesesidad.
+
 video (scripts para arranque de video)...Cambiar resolocion,fps y ip para nuestra nesecidad.
+
 temp.py (scripts que mide temperatura de cpu de raspberry y guarda en home/pi/temp.txt con fecha +hora.
+
 xxxx.service (scripts de servicio para arranque en incio).
+
 actualizacion (scripts para actualizar apm en navio + tambien incluido en el archivo del repositorio de instalacion automatica)
+
 actualizacion2(scripts para actualizar apm en navio 2 tambien incluido en el archivo del repositorio de instalacion automatica)
+
 interfaces(ip fija para wifi, cambiar aqui nombre del ruter y comtraseña
 
 Designada en interfaces ip fija para wifi,comfigurar si quieren otro tipo de ip.
+
 Cambiar en (sudo nano /etc/network/interfaces)
+
 Configuracion actual.
+
 
 auto lo
 
