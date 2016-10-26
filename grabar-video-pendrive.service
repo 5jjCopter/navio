@@ -1,0 +1,12 @@
+[Unit]
+Description=video Flight Controller
+After=network.target user.slice
+
+[Service]
+ExecStart=/home/pi/grabar-video-mobil
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+Alias=grabar-video-mobil.service
