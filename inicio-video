@@ -1,0 +1,2 @@
+#!/bin/sh
+omxplayer -o hdmi /home/pi/video.mp4
