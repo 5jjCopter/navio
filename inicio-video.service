@@ -1,0 +1,12 @@
+[Unit]
+Description=video inicio
+After=network.target user.slice
+
+[Service]
+ExecStart=/home/pi/inicio-video
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=stop
+
+[Install]
+WantedBy=multi-user.target
+Alias=video-inicio.service
