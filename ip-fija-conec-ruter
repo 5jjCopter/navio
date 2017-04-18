@@ -26,4 +26,6 @@ sudo cp wpa_supplicant /etc/wpa_supplicant.conf
 
 sudo rm -rf navio-master
 
+sudo apt-get update && sudo apt-get dist-upgrade
+
 sudo reboot
