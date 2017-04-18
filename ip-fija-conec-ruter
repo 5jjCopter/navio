@@ -18,11 +18,13 @@ cd navio-master
 
 sudo chmod 775 interfaces
 
-sudo chmod 775 wpa_supplicant
+sudo chmod 775 wpa_supplicant.conf
 
 sudo cp interfaces /etc/network
 
-sudo cp wpa_supplicant /etc/wpa_supplicant.conf
+sudo cp wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf
+
+cd
 
 sudo rm -rf navio-master
 
