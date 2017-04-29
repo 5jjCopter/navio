@@ -57,13 +57,21 @@ sudo nano /etc/rc.local
 12 COPIAMOS ESTO Y LO PEGAMOS JUSTO ANTES DE exit 0 SIN BORRAR EL CONTENIDO YA EXISTENTE
 
 (
+
 date
+
 echo $PATH
+
 PATH=$PATH:/bin:/sbin:/usr/bin:/usr/local/bin
+
 export PATH
+
 cd /home/pi
+
 screen -d -m -s /bin/bash mavproxy.py --master=/dev/ttyAMA0 --baudrate 57600 --aircraft MyCopter
+
 ) > /tmp/rc.log 2>&1
+
 exit 0
 
 13 YA CONESTO TENDREMOS TELEMETRIA UDP CON MAVPROXY Y VIDEO UDP CON GSTREAMER.
