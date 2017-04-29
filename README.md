@@ -1,44 +1,44 @@
-# navio
-Contenido:
-ardupilol (scripts para arranque apm)...Cambiar ip y veiculo para nuestra nesesidad.
+VÍDEO POR GSTREAMER A 1080 UDP Y TEMERARIA TCP CON SER2NET O UDP CON MAVPROXY.
+LO QUE NECESITAMOS
+DRON CON PIXHAWK
+RASPBERRY PI 2 O 3
+PINCHO WIFI 5G CLS 300 O ALFA NETWORK AWUS054NH
+TARGETA MICRO SD 16G CLASE 10
+PUNTO DE ACCESO WIFI (RUTER)..(UBIQUITI M5)
+EMPECEMOS
+1 DESCARGAR ESTA IMAGEN ISO https://drive.google.com/file/d/0B3LYYl80mki7ZExyanlfTFJhWE0/view?usp=sharing
+2 DESCOMPRIMIR EL ZIP CON WINRAR O 7ZIP.
+3 HABRIR Win32DiskImager Y EN LA CARPETA ELEGIR LA IMAGEN ISO QUE SE HA DESCOMPRIMIDO .
+4 EN LA UNIDAD ELEGIR LA LETRA DE LA MICRO SD QUE TENEIS CONECTADA AL ORDENADOR Y DARLA A ESCRIBIR.
+.CUANDO ACABE YA TENDREMOS LISTA LA IMAGEN.
+6 COLOCAR LA MICRO SD EN LA RASPBERRY LA CONECTAIS A INTERNET POR CABLE Y LA ALIMENTAIS.77
+7 CONECTAIS EL PUNTO DE ACESO QUE DEVERIA TENER COMO SSID:ruter Y COMTRASEÑA:2004123413252.
+8 CONECTAROS CON EL MOBIL A PUNTO DE ACESO Y DESCARGAROS EN EL MOBIL LA APLICACION FING PARA VER LA IP DE LA RASPBERRY
+9 AHORA CON EL PROGRAMA PUTTY PONEIS LA IP Y SE CONECTAIS POR SSH AL TERMINAL DE RASPBERRY
+10 COPIAMOS ESTO EN CONSOLA Y DAMOS A INTRO
+sudo wget https://github.com/5jjCopter/navio/archive/master.zip
+sudo unzip master.zip
+cd navio-master
+sudo cp mavproxy.sh /home/pi
+sudo chmod 775 mavproxy.sh
+cd 
+sudo rm master.zip
+sudo rm -rf navio-master
+11 AHORA NOS MOVEREMOS CON ESTA LINEA A RC.LOCAL
+sudo nano /etc/rc.local
+12 COPIAMOS ESTO Y LO PEGAMOS JUSTO ANTES DE exit 0 SIN BORRAR EL CONTENIDO YA EXISTENTE
 
-video (scripts para arranque de video)...Cambiar resolocion,fps y ip para nuestra nesecidad.
-
-temp.py (scripts que mide temperatura de cpu de raspberry y guarda en home/pi/temp.txt con fecha +hora.
-
-xxxx.service (scripts de servicio para arranque en incio).
-
-actualizacion (scripts para actualizar apm en navio + tambien incluido en el archivo del repositorio de instalacion automatica)
-
-actualizacion2(scripts para actualizar apm en navio 2 tambien incluido en el archivo del repositorio de instalacion automatica)
-
-interfaces(ip fija para wifi, cambiar aqui nombre del ruter y comtraseña
-
-Designada en interfaces ip fija para wifi,comfigurar si quieren otro tipo de ip.
-
-Cambiar en (sudo nano /etc/network/interfaces)
-
-Configuracion actual.
+(
+date
+echo $PATH
+PATH=$PATH:/bin:/sbin:/usr/bin:/usr/local/bin
+export PATH
+cd /home/pi
+screen -d -m -s /bin/bash mavproxy.py --master=/dev/ttyAMA0 --baudrate 57600 --aircraft MyCopter
+) > /tmp/rc.log 2>&1
+exit 0
+13 YA CONESTO TENDREMOS TELEMETRIA UDP CON MAVPROXY Y VIDEO UDP CON GSTREAMER.
+14 TENDREIS QUE INSTALAR GSTREAMER EN VUESTRO PC 
+15 RECORDAD QUE TENDRÉIS QUE TENER UNA IP FIJA 192.168.1.150 EN VUESTRO PC PARA PODER RECIBIR EL VÍDEO Y LA TEMERARIA.
 
 
-auto lo
-
-iface lo inet loopback
-
-iface eth0 inet dhcp
-
-auto wlan0
-
-iface wlan0 inet static
-
-address 192.168.1.122# ip de la navio
-
-netmask 255.255.255.0
-
-gateway 192.168.1.1
-
-wpa-ssid "xxxxx" # nombre de ruter o punto de acseso
-
-wpa-psk "xxxxxxxxxxxxx"# comtraseña del ruter
-
-Cambiar (x) en ssid por nombre de ruter o punto de acseso y en wpa-psk por comtraseña de ruter o punto de acseso.
