@@ -1,0 +1,13 @@
+auto lo
+
+iface lo inet loopback
+
+iface eth0 inet dhcp
+
+auto wlan0
+iface wlan0 inet static
+address 192.168.1.122
+netmask 255.255.255.0
+gateway 192.168.1.1
+wpa-ssid "ruter"
+wpa-psk "2004123413252"
